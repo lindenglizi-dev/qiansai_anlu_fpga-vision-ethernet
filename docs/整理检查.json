@@ -1,0 +1,33 @@
+{
+  "rtl_comment_only_files": 205,
+  "python_core_ast_equal": true,
+  "project_references_resolved": 136,
+  "protected_data_equal": [
+    "rtl/combined_curves.mem",
+    "rtl/gamma_fixed.mem",
+    "user_source/hdl_source/hdmi_1_4b_transmitter_core_wrapper.enc.v",
+    "user_source/hdl_source/dsi_tx_packet/config_data.mif.dat",
+    "user_source/hdl_source/mipi_dphy_rx/byte_aligner.enc.v",
+    "user_source/hdl_source/mipi_dphy_rx/byte_aligner_wrapper.enc.sv",
+    "user_source/hdl_source/mipi_dphy_rx/channel_aligner.enc.v",
+    "user_source/hdl_source/mipi_dphy_rx/channel_aligner_wrapper.enc.sv",
+    "user_source/hdl_source/mipi_dphy_rx/hs_detect.enc.v",
+    "user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/mc/alc_mc_top_all.enc.sv",
+    "user_source/hdl_source/ph1p35_ddr/ddr2/src/rtl/phy/ddrphy_cfg_rom.txt",
+    "rtl/face_rom/coordinates.mem",
+    "rtl/face_rom/stages.mem",
+    "rtl/face_rom/stumps.mem",
+    "rtl/face_rom/stumps.mem.packed"
+  ],
+  "physical_rebuild_in_export": false,
+  "rtl_native_cases_pass": [
+    "tb_counter_equivalence",
+    "tb_counter_generic",
+    "tb_runtime_commit",
+    "tb_osd_visibility"
+  ],
+  "td_top_elaboration_pass": true,
+  "software_combined_views_pass": true,
+  "rtl_noncomment_match_original": true,
+  "baseline_bit_sha256_verified": true
+}

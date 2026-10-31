@@ -1,0 +1,8 @@
+{
+  "file": "ball_algorithm_control_rom.bit",
+  "size": 1789539,
+  "sha256": "db2e0a2e7cd70b4d0c030f66882c546435e5c46ad2c2cfe4887a1cdddf900a7a",
+  "setup_wns_ns": 0.001,
+  "hold_wns_ns": 0.02,
+  "board_tested": false
+}

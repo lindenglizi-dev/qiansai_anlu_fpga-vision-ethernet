@@ -1,1 +1,11 @@
-# qiansai_anlu_fpga-vision-ethernet
+# FPGA视觉处理与小球检测计数
+
+基于PH1P35的摄像头视频处理工程，包含算法展示、小球检测和分类计数，以及千兆以太网上位机。
+
+算法模式0～9：原图、白平衡、灰度二值化、中值、边缘、锐化、Gamma、对比度、亮度和图像编辑。模式10为小球检测/计数，红黄绿共最多4目标。人脸和独立TRACK模式未启用。上位机界面布局保持交付版样式。
+
+先阅读docs/操作手册.md和docs/构建说明.md；时序与资源见docs/验证结果.md。
+
+目录：rtl为应用逻辑，ethernet为网络逻辑，user_source为板级与厂商IP，td_project为工程和约束，pc_app为上位机，scripts为构建及检查，tests为仿真资料。
+
+Git仓库不保存中间数据库或旧位流。基准位流作为比赛交付附件提供，校验值见docs/基准位流.json。第三方代码的使用范围见THIRD_PARTY_NOTICES.md。
