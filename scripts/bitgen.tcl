@@ -99,14 +99,16 @@ cd "$project_root/td_project"
 open_project "$project_root/td_project/ball_face.al" -noanalyze
 import_db $checked_db
 cd $run_dir
-file mkdir "$project_root/output"
+file mkdir "$project_root/output/rebuilt"
 commit_param -step bitgen
-set pending_bit "$project_root/output/ball_face_ethernet.pending_[pid]_[clock microseconds].bit"
+set pending_bit "$project_root/output/rebuilt/ball_face_ethernet.pending_[pid]_[clock microseconds].bit"
 bitgen -bit $pending_bit
 export_bitgen_param -file bitgen_parameters.txt
 if {![file isfile $pending_bit] || [file size $pending_bit] == 0} {
  error "Native bitgen did not produce a new bitstream"
 }
-file rename -force $pending_bit "$project_root/output/ball_algorithm_control_rom.bit"
+set output_bit "$project_root/output/rebuilt/ball_algorithm_rebuilt.bit"
+if {[file exists $output_bit]} {error "输出已存在，请使用新的构建副本"}
+file rename $pending_bit $output_bit
 puts PASS_FULL_APPLICATION_ETHERNET_BITSTREAM_GENERATED
 exit

@@ -8,14 +8,14 @@ def save(name,value):(A/name).write_text(json.dumps(value,ensure_ascii=False,ind
 def py(path,*args):subprocess.run([sys.executable,str(path),*args],cwd=R,check=True)
 def td(script,log,marker):
  out=A/log
- with out.open('w',encoding='utf-8') as f:result=subprocess.run([os.environ['TD_EXEC'],str(script)],cwd=A,stdout=f,stderr=subprocess.STDOUT)
+ with out.open('w',encoding='utf-8') as f:result=subprocess.run([os.environ['TD_EXEC'],str(script).replace('\\','/')],cwd=A,stdin=subprocess.DEVNULL,stdout=f,stderr=subprocess.STDOUT)
  text=out.read_text(encoding='utf-8',errors='replace')
  assert result.returncode==0 and marker in text,(script,'工具未返回通过标志')
  return result.returncode
 
 def main():
  assert 'TD_EXEC' in os.environ and 'VIVADO_BIN' in os.environ,'请设置工具路径'
- assert not (D/'routed.db').exists(),'请使用新构建目录，保留已有结果'
+ assert not (R/'output/rebuilt/ball_algorithm_rebuilt.bit').exists() and not (D/'routed.db').exists(),'请使用新构建目录，保留已有结果'
  py(A/'prepare_manifest.py');py(A/'run_tests.py')
  td(A/'build.tcl','gate_native.log','PASS COMBINED_FIRST_GATE')
  save('scalar_gate_receipt.json',{'pass':True,'exit':0,'native_log_sha256':sha(A/'gate_native.log'),'gate_db_sha256':sha(R/'build/gate/gate.db')})
